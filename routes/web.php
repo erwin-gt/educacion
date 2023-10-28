@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 
 route::get('/alumnos', "App\Http\Controllers\AlumnoController@obtenerAlumnos");
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
