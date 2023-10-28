@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\SemestreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+/*
 route::get('/alumnos', "App\Http\Controllers\AlumnoController@obtenerAlumnos");
-Auth::routes();
+Auth::routes();*/
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('home',CarreraController::class);

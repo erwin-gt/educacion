@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Carrera;
+use App\Models\Carreras;
 use Illuminate\Http\Request;
 
 class CarreraController extends Controller
@@ -12,7 +12,8 @@ class CarreraController extends Controller
      */
     public function index()
     {
-        //
+        $carreras = Carreras::all();
+        return view("carrera.index", compact("carreras"));
     }
 
     /**
@@ -28,7 +29,10 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $carreras = new Carreras;
+        $carreras->nombre = $request->input('nombre');
+        $carreras->save();
+        return redirect()->back();
     }
 
     /**
